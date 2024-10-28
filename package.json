@@ -5,10 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node dist/server.js",
-    "start:dev": "nodemon --watch src --exec ts-node src/index.ts",
-    "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon ts-node-dev src/index.ts"
   },
   "author": "Andrei Auchynnikau",
   "keywords": [],
@@ -17,6 +14,7 @@
     "@types/express": "^5.0.0",
     "@types/node": "^22.7.7",
     "@types/uuid": "^10.0.0",
+    "@types/ws": "^8.5.12",
     "eslint": "^9.13.0",
     "nodemon": "^3.1.7",
     "prettier": "^3.3.3",
@@ -25,6 +23,10 @@
     "typescript": "^5.6.3"
   },
   "dependencies": {
-    "ws": "^8.8.0"
+    "ws": "^8.8.0",
+    "typescript": "^5.2.2",
+    "ts-node": "^10.9.1",
+    "dotenv": "^16.0.3",
+    "uuid": "^9.0.0"
   }
 }

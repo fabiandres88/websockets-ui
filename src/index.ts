@@ -1,6 +1,17 @@
-import { httpServer } from "./http_server";
+import WebSocket, { WebSocketServer } from "ws";
+import { handleConnection } from "./controllers/game";
+import dotenv from "dotenv";
 
-const HTTP_PORT = 8181;
+dotenv.config();
 
-console.log(`Start static http server on the ${HTTP_PORT} port!`);
-httpServer.listen(HTTP_PORT);
+const PORT = process.env.PORT || 8080;
+const wss = new WebSocketServer({ port: Number(PORT) });
+
+wss.on("connection", (ws) => {
+  console.log("New player connected");
+  handleConnection(ws);
+});
+
+wss.on("listening", () => {
+  console.log(`WebSocket server started on ws://localhost:${PORT}`);
+});
